@@ -1,0 +1,1 @@
+web: gunicorn credit_grade:app --log-file -
