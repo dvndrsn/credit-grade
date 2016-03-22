@@ -21,6 +21,41 @@ Create a RESTful web service that returns a credit grade when fed data about an 
 
 `sample_data.csv` is historical data on loans that have already been underwritten, including the final `credit_grade` that was assigned to them. Use this historical data to inform the design of your new credit grading algorithm.
 
+Implementation
+--------------
+
+I chose to use flask for ease of implementation for REST web services. Data was analyzed and processed using Pandas, selecting key numerical features to use for training a simple Linear Regression model through Scikit Learn. Test Cases were implemented using Unit Test and Mock.
+
+A quick web hosting was configured on Heroku using Guincorn as the WSGI container.
+
+http://bond-credit-grade.heroku.com/CreditGrade
+
+Train the model:
+
+```
+python init_model.py sample_data.csv
+```
+
+Start the server locally:
+
+```
+python runserver.py
+```
+
+Send a sample request:
+
+```
+curl 'http://bond-credit-grade.heroku.com/CreditGrade?approved_amount=1&term_months=1&dscr=1&vantage_score=1&fico_score=1&intelliscore=1&bdfs_score=1&annual_revenue=1&business_founding_years=1'
+```
+
+Sample response:
+
+```
+{
+    "credit_grade": "D5"
+}
+```
+
 How you'll be evaluated
 =======================
 
