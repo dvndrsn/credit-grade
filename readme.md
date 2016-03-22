@@ -26,10 +26,6 @@ Implementation
 
 I chose to use flask for ease of implementation for REST web services. Data was analyzed and processed using Pandas, selecting key numerical features to use for training a simple Linear Regression model through Scikit Learn. Test Cases were implemented using Unit Test and Mock.
 
-A quick web hosting was configured on Heroku using Guincorn as the WSGI container.
-
-http://bond-credit-grade.heroku.com/CreditGrade
-
 Train the model:
 
 ```
@@ -45,7 +41,7 @@ python runserver.py
 Send a sample request:
 
 ```
-curl 'http://bond-credit-grade.heroku.com/CreditGrade?approved_amount=1&term_months=1&dscr=1&vantage_score=1&fico_score=1&intelliscore=1&bdfs_score=1&annual_revenue=1&business_founding_years=1'
+curl 'http://localhost:5000/CreditGrade?approved_amount=1&term_months=1&dscr=1&vantage_score=1&fico_score=1&intelliscore=1&bdfs_score=1&annual_revenue=1&business_founding_years=1'
 ```
 
 Sample response:
